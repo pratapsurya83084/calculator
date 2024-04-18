@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-800 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-lg">
+        <div id="display" class="bg-gray-200 p-4 text-right text-2xl rounded mb-4">
+            
+            
+        </div>
+        <div class="grid grid-cols-4 gap-4">
+            <button onclick="inputvalue(7)"  id="values"   class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="7">7</button>
+            <button onclick="inputvalue(8)"   id="values"    class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="8">8</button>
+            <button onclick="inputvalue(9)"  id="values"    class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="9">9</button>
+            <button onclick="divides()"       id="divides-value" class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="/">÷</button>
+            <button onclick="inputvalue(4)"  id="values"  class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="4">4</button>
+            <button onclick="inputvalue(5)"  id="values"   class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="5">5</button>
+            <button onclick="inputvalue(6)"  id="values"  class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="6">6</button>
+            <button onclick="multiply()"      id="multiply-value"  class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="*">x</button>
+            <button onclick="inputvalue(1)"    id="values"   class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="1">1</button>
+            <button onclick="inputvalue(2)"  id="values"   class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="2">2</button>
+            <button onclick="inputvalue(3)"  id="values"  class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="3">3</button>
+            <button onclick="substract()"     id="substract-value"   class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="-">-</button>
+            <button onclick="inputvalue(0)"  id="values"  class="calc-btn p-4 bg-blue-500 text-white rounded" data-num="0">0</button>
+            <button onclick="dot()" id="dot-value"   class="calc-btn p-4 bg-blue-700 text-white rounded" data-op=".">.</button>
+            <button onclick="clearInput(0)"  id="clear-value"  class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="C">C</button>
+            <button onclick="showResult()"      id="ansewers"  class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="=">=</button>
+            <button onclick="addition()" id="add-value"   class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="+">+</button>
+            <button onclick="modulo()" id="modulo-value"   class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="%">%</button>
+            <button onclick="inputOperator('**')" class="calc-btn p-4 bg-blue-700 text-white rounded" data-op="**">^</button>
+            <button onclick="removeval()" class="calc-btn p-4 bg-red-500 text-white rounded">Cut</button>
+        </div>
+    </div>
+
+  
+    <script>
+ 
+ function inputvalue(a) {
+
+// let a=document.getElementById("values").value;
+let showvalue =document.getElementById("display");
+    showvalue.innerHTML +=a;
+   
+   }
+
+
+   function addition() {
+
+let showvalue=document.getElementById("display");
+  let addicons=  showvalue.innerText +="+";
+//   let result=showvalue.value + addicons;
+
+
+   }
+
+   function dot() {
+    let showvalue=document.getElementById("display");
+  let addicons=  showvalue.innerText +=".";
+   }
+
+     // Function to evaluate and display the result
+     function showResult() {
+            let display = document.getElementById("display");
+            let result = eval(display.innerText);  //display is empty space insides this text evaluates
+            display.innerText = result;
+        }
+
+//substract function
+function substract() {
+    let showvalue=document.getElementById("display");
+    showvalue.innerText +="-";
+}
+
+// power function
+       function inputOperator(operator) {
+            let display = document.getElementById("display");
+            display.innerText += operator;
+        }
+
+//substract function
+function modulo() {
+    let showvalue=document.getElementById("display");
+    showvalue.innerText +="%";
+}
+//multiply function
+function multiply() {
+    let showvalue=document.getElementById("display");
+    showvalue.innerText +="*";
+}
+
+//divides function
+function divides() {
+    let showvalue=document.getElementById("display");
+    showvalue.innerText +="/";
+}
+
+//clear function
+function clearInput() {
+let clearValues=document.getElementById("display");
+//let clearvalue=
+clearValues.innerText="";
+}
+
+
+
+
+function removeval() {
+    let display = document.getElementById("display");
+            let text = display.innerText;
+        display.innerText = text.slice(0, -1);
+
+
+}
+
+   </script>
+</body>
+</html>
